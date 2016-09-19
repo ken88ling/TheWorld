@@ -1,15 +1,28 @@
 ﻿// site.js
 
-(function() {
-    var ele = document.getElementById("username");
-    ele.innerHTML = "Shawn Wildermuth";
+(function () {
 
-    var main = document.getElementById("main");
-    main.onmouseenter = function() {
-        main.style = "background: #888;";
-    };
+    //var ele = $("#username");
+    //ele.text("Shawn Wildermuth");
 
-    main.onmouseleave = function() {
-        main.style = "";
-    };
+    //var main = $("#main");
+    //main.on("mouseenter" , function() {
+    //    main.style = "background-color: #888;";
+    //    alert("mounse enter");
+    //});
+
+    //main.on("mouseleave" , function() {
+    //    main.style = "";
+    //    alert("mouse leave");
+    //});
+
+
+    //var menuItems = $("ul.menu li a");
+    //menuItems.on("click",
+    //    function() {
+    //        alert($(this).text());
+    //    });
+
+
+    
 })();
