@@ -9,7 +9,7 @@ label {
     display: block;
 }
 
-input[type=text],input[type=password], textarea {
+input[type=text], input[type=password], textarea {
     width: 150px;
 }
 
@@ -28,7 +28,7 @@ input[type=text],input[type=password], textarea {
     width: 100%;
 }
 
-.headshot{
+.headshot {
     max-width: 50px;
     border: 1px solid #222;
     padding: 3px;
@@ -38,12 +38,16 @@ input[type=text],input[type=password], textarea {
     font-size: 12px;
 }
 
-.menu li {
-    list-style-type: none;
-}
+    .menu li {
+        list-style-type: none;
+    }
 
-.menu li.active {
+/*.menu li.active {
     font-weight: bold;
+}*/
+
+#sidebar.hide-sidebar {
+    left: -250px;
 }
 
 .menu li a {
@@ -63,4 +67,8 @@ input[type=text],input[type=password], textarea {
 
 #wrapper {
     margin: 0 0 0 250px;
+}
+
+#wrapper.hide-sidebar {
+    margin-left: 0;
 }
