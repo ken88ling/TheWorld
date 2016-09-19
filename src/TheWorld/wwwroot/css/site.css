@@ -10,7 +10,7 @@ label {
 }
 
 input[type=text],input[type=password], textarea {
-    width: 150px
+    width: 150px;
 }
 
 #main {
@@ -32,7 +32,6 @@ input[type=text],input[type=password], textarea {
     max-width: 50px;
     border: 1px solid #222;
     padding: 3px;
-    margin: 0;
 }
 
 .menu {
@@ -41,12 +40,11 @@ input[type=text],input[type=password], textarea {
 
 .menu li {
     list-style-type: none;
-
 }
 
-.menu li.active {
+/*.menu li.active {
     font-weight: bold;
-}
+}*/
 
 #sidebar {
     background: #2a2c36;
