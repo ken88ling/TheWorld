@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace TheWorld.Controllers.Web
 {
@@ -9,5 +11,17 @@ namespace TheWorld.Controllers.Web
 
             return View();
         }
+
+        public IActionResult Contact()
+        {
+            throw new InvalidOperationException("bad things happen");
+            return View();
+        }
+
+        public IActionResult About()
+        {
+            return View();
+        }    
+        
     }
 }
