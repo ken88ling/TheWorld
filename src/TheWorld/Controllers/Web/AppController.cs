@@ -14,7 +14,7 @@ namespace TheWorld.Controllers.Web
 
         public IActionResult Contact()
         {
-            throw new InvalidOperationException("bad things happen");
+            //throw new InvalidOperationException("bad things happen");
             return View();
         }
 
