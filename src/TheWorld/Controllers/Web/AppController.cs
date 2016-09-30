@@ -19,7 +19,6 @@ namespace TheWorld.Controllers.Web
         }
         public IActionResult Index()
         {
-
             return View();
         }
 
