@@ -12,25 +12,35 @@
         <h2>Contact me</h2>
 
         <form method="post">
-            <div asp-validation-summary="ModelOnly"></div>
             @if (ViewBag.UserMessage != null)
             {
                 <div>@ViewBag.UserMessage</div>
             }
-            <label asp-for="Name"></label>
-            <input asp-for="Name" />
-            <span asp-validation-for="Name"></span>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <label asp-for="Email"></label>
-            <input type="Email" asp-for="Email" />
-            <span asp-validation-for="Email"></span>
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-muted"></span>
+            </div>
 
-            <label asp-for="Message"></label>
-            <textarea cols="40" rows="4" asp-for="Message"></textarea>
-            <span asp-validation-for="Message"></span>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input type="Email" asp-for="Email" class="form-control"/>
+                <span asp-validation-for="Email" class="text-muted"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Message"></label>
+                <textarea cols="40" rows="4" asp-for="Message" class="form-control"></textarea>
+                <span asp-validation-for="Message" class="text-muted"></span>
+            </div>
 
-            <div>
-                <input type="submit" value="Send Message" />
+            <div class="form-group">
+                <div>
+                    <a asp-controller="App" asp-action="Index" class="btn btn-success">Cancel</a>
+                    <input type="submit" value="Send Message" class="btn btn-success"/>
+                </div>
             </div>
         </form>
     </div>
