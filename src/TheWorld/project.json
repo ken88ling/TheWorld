@@ -19,7 +19,8 @@
       "type": "build"
     },
     "Microsoft.EntityFrameworkCore.Tools.Core": "1.0.0-rc2-final",
-    "Microsoft.EntityFrameworkCore.Tools.Cli": "1.0.0-preview1-final"
+    "Microsoft.EntityFrameworkCore.Tools.Cli": "1.0.0-preview1-final",
+    "Microsoft.Extensions.Logging.Debug": "1.0.0"
   },
 
   "tools": {
