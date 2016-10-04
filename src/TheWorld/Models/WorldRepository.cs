@@ -41,5 +41,14 @@ namespace TheWorld.Models
                 .Include(t=>t.Stops)
                 .FirstOrDefault(t => t.Name == tripName);
         }
+
+        public void AddStop(string tripName, Stop newStop)
+        {
+            var trip = GetTripByName(tripName);
+            if (trip != null)
+            {
+                _context.Stops.Add(newStop);
+            }
+        }
     }
 }
