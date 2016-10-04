@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -12,11 +13,10 @@ namespace TheWorld.Controllers.Web
 {
     public class AppController : Controller
     {
-        private IMailService _mailService;
-        private IConfigurationRoot _config;
-        //private WorldContext _context;
-        private IWorldRepository _repository;
-        private ILogger<AppController> _logger;
+        private readonly IMailService _mailService;
+        private readonly IConfigurationRoot _config;
+        private readonly IWorldRepository _repository;
+        private readonly ILogger<AppController> _logger;
 
         public AppController(IMailService mailService, IConfigurationRoot config, IWorldRepository repository,
             ILogger<AppController> logger)
@@ -28,6 +28,12 @@ namespace TheWorld.Controllers.Web
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public IActionResult Trips()
         {
             try
             { 
