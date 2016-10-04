@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using TheWorld.Models;
 using TheWorld.ViewModels;
 
@@ -21,7 +22,17 @@ namespace TheWorld.Controllers.Api
         [HttpGet("")]
         public IActionResult Get()
         {
-            return Ok(_repository.GetAllTrips());
+            try
+            {
+                var results = _repository.GetAllTrips();
+                return Ok(Mapper.Map<IEnumerable<TripViewModel>>(results));
+            }
+            catch (Exception ex)
+            {
+                // TODO Logging
+
+                return BadRequest(ex);
+            }
         }
 
         [HttpPost("")]
@@ -30,8 +41,9 @@ namespace TheWorld.Controllers.Api
             if (ModelState.IsValid)
             {
                 // Save to the Database
+                var newTrip = Mapper.Map<Trip>(theTrip);
 
-                return Created($"api/trips/{theTrip.Name}", theTrip);
+                return Created($"api/trips/{theTrip.Name}", Mapper.Map<TripViewModel>(newTrip));
             }
             return BadRequest(ModelState);
         }

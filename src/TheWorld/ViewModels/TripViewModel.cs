@@ -10,6 +10,6 @@ namespace TheWorld.ViewModels
         public string Name { get; set; }
 
         [Required]
-        public DateTime Created { get; set; } = DateTime.UtcNow;
+        public DateTime DateCreated { get; set; } = DateTime.UtcNow;
     }
 }
