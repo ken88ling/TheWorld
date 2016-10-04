@@ -47,6 +47,7 @@ namespace TheWorld.Models
             var trip = GetTripByName(tripName);
             if (trip != null)
             {
+                trip.Stops.Add(newStop);
                 _context.Stops.Add(newStop);
             }
         }
