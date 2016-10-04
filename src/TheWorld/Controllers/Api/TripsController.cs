@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheWorld.Models;
+using TheWorld.ViewModels;
 
 namespace TheWorld.Controllers.Api
 {
@@ -24,9 +25,15 @@ namespace TheWorld.Controllers.Api
         }
 
         [HttpPost("")]
-        public IActionResult Post([FromBody]Trip theTrip)
+        public IActionResult Post([FromBody]TripViewModel theTrip)
         {
-            return Ok(true);
+            if (ModelState.IsValid)
+            {
+                // Save to the Database
+
+                return Created($"api/trips/{theTrip.Name}", theTrip);
+            }
+            return BadRequest(ModelState);
         }
     }
 }
