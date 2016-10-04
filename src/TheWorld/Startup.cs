@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -33,7 +34,7 @@ namespace TheWorld
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(_config);
-            if (_env.IsDevelopment()||_env.IsEnvironment("Testing"))
+            if (_env.IsDevelopment() || _env.IsEnvironment("Testing"))
             {
                 services.AddScoped<IMailService, DebugMailService>();
             }
@@ -57,7 +58,13 @@ namespace TheWorld
 
             services.AddLogging();
 
-            services.AddMvc()
+            services.AddMvc(config =>
+                {
+                    if (_env.IsProduction())
+                    {
+                        config.Filters.Add(new RequireHttpsAttribute());
+                    }
+                })
                 .AddJsonOptions(config =>
                 {
                     config.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
@@ -95,7 +102,7 @@ namespace TheWorld
                 config.MapRoute(
                     name: "Default",
                     template: "{controller}/{action}/{id?}",
-                    defaults: new {controller = "App", action = "Index"}
+                    defaults: new { controller = "App", action = "Index" }
                 );
             });
 
