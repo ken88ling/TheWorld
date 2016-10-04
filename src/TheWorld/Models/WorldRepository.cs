@@ -25,6 +25,14 @@ namespace TheWorld.Models
             return _context.Trips.ToList();
         }
 
+        public IEnumerable<Trip> GetTripsByUsername(string name)
+        {
+            return _context.Trips
+                .Include(t=>t.Stops)
+                .Where(t => t.UserName == name)
+                .ToList();
+        }
+
         public void AddTrip(Trip trip)
         {
             _context.Add(trip);
