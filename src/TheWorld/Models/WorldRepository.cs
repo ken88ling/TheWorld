@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace TheWorld.Models
 {
-    public class WorldRepository :IWorldRepository
+    public class WorldRepository : IWorldRepository
     {
         private readonly WorldContext _context;
         private ILogger<WorldRepository> _logger;
@@ -28,7 +28,7 @@ namespace TheWorld.Models
         public IEnumerable<Trip> GetTripsByUsername(string name)
         {
             return _context.Trips
-                .Include(t=>t.Stops)
+                .Include(t => t.Stops)
                 .Where(t => t.UserName == name)
                 .ToList();
         }
@@ -46,19 +46,26 @@ namespace TheWorld.Models
         public Trip GetTripByName(string tripName)
         {
             return _context.Trips
-                .Include(t=>t.Stops)
+                .Include(t => t.Stops)
                 .FirstOrDefault(t => t.Name == tripName);
         }
 
-        public void AddStop(string tripName, Stop newStop)
+        public void AddStop(string tripName, Stop newStop,string username)
         {
-            var trip = GetTripByName(tripName);
+            var trip = GetUserTripByName(tripName,username);
             if (trip != null)
             {
                 //this version not good enough
                 trip.Stops.Add(newStop);
                 _context.Stops.Add(newStop);
             }
+        }
+
+        public Trip GetUserTripByName(string tripName, string username)
+        {
+            return _context.Trips
+                .Include(t => t.Stops)
+                .FirstOrDefault(t => t.Name == tripName && t.UserName == username);
         }
     }
 }
