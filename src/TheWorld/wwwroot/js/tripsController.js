@@ -17,14 +17,19 @@
 
         vm.errorMessage = "";
 
+        vm.isBusy = true;
+
         $http.get("/api/trips")
             .then(function(response) {
                 //Success
                 angular.copy(response.data, vm.trips);
-            }),function() {
+            },function() {
                 // failure
-            vm.errorMessage = "Failed to load data: " + error;
-        }
+                vm.errorMessage = "Failed to load data: " + error;
+            })
+            .finally(function() {
+            vm.isBusy = false;
+        });
 
         vm.addTrip = function() {
             vm.trips.push({ name: vm.newTrip.name, created: new Date() });
