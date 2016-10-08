@@ -5,7 +5,9 @@
         .controller("tripEditorController", tripEditorController);
 
     function tripEditorController() {
-        
+        var vm = this;
+
+        vm.name = "Shawn";
     }
 
 })();

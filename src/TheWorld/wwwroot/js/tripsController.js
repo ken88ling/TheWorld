@@ -40,8 +40,8 @@
             .then(function (response) {
                 // Success
                 vm.trips.push(response.data);
-                    vm.newTrip = {};
-                }, function () {
+                vm.newTrip = {};
+            }, function () {
                 // failure
                 vm.errorMessage = "Failed to sve new Trip";
             })

@@ -14,12 +14,12 @@
             templateUrl: "/views/tripsView.html"//represent what is actual view
         });
 
-            $routeProvider.when("/editor",
-            {
-                controller: "tripsEditorController",
-                controllerAs: "vm",
-                templateUrl:"/views/tripEditorView.html"
-            });
+        $routeProvider.when("/editor",
+        {
+            controller: "tripEditorController",
+            controllerAs: "vm",
+            templateUrl: "/views/tripEditorView.html"
+        });
 
         $routeProvider.otherwise({ redirectTo: "/" });
     });

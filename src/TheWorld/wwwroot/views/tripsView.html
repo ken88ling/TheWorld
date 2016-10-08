@@ -1,5 +1,4 @@
-﻿<!--<div ng-controller="tripsController as vm" class="col-md-6 col-md-offset-3">-->
-<div class="col-md-6 col-md-offset-3">
+﻿<div class="col-md-6 col-md-offset-3">
     <div class="text-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
     <wait-cursor display-when="vm.isBusy"></wait-cursor>
     <table class="table table-responsive table-striped">
@@ -7,7 +6,7 @@
             <td>{{ trip.name }}</td>
             <td>{{ trip.created | date:'dd-MM-yyyy' }}</td>
             <td>
-                <a href="#" class="btn btn-sm btn-primary">Manage</a>
+                <a href="#/editor" class="btn btn-sm btn-primary">Manage</a>
             </td>
         </tr>
     </table>

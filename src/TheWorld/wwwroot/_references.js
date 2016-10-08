@@ -2,6 +2,7 @@
 /// <reference path="js/app-trips.js" />
 /// <reference path="js/simplecontrols.js" />
 /// <reference path="js/site.js" />
+/// <reference path="js/tripeditorcontroller.js" />
 /// <reference path="js/tripsController.js" />
 /// <reference path="lib/angular/angular.js" />
 /// <reference path="lib/angular/angular.min.js" />
