@@ -14,7 +14,7 @@
             templateUrl: "/views/tripsView.html"//represent what is actual view
         });
 
-        $routeProvider.when("/editor",
+        $routeProvider.when("/editor/:tripName",
         {
             controller: "tripEditorController",
             controllerAs: "vm",
