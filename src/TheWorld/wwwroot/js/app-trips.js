@@ -4,6 +4,9 @@
 
 
     //Create the module
-    angular.module("app-trips", ["simpleControls"]);
+    angular.module("app-trips", ["simpleControls", "ngRoute"])
+    .config(function() {
+            
+        });
 
 })();
