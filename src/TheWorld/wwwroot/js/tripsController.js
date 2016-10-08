@@ -1,4 +1,4 @@
-﻿(function() {
+﻿(function () {
 
     "use strict";
 
@@ -9,7 +9,7 @@
     function tripsController($http) {
 
         var vm = this;
-        
+
         // retrieve from api - using http
         vm.trips = [];
 
@@ -20,20 +20,35 @@
         vm.isBusy = true;
 
         $http.get("/api/trips")
-            .then(function(response) {
+            .then(function (response) {
                 //Success
                 angular.copy(response.data, vm.trips);
-            },function() {
+            }, function () {
                 // failure
                 vm.errorMessage = "Failed to load data: " + error;
             })
-            .finally(function() {
-            vm.isBusy = false;
-        });
+            .finally(function () {
+                vm.isBusy = false;
+            });
 
-        vm.addTrip = function() {
-            vm.trips.push({ name: vm.newTrip.name, created: new Date() });
-            vm.newTrip = {};
+        vm.addTrip = function () {
+
+            vm.isBusy = true;
+            vm.errorMessage = "";
+
+            $http.post("/api/trips", vm.newTrip)
+            .then(function (response) {
+                // Success
+                vm.trips.push(response.data);
+                    vm.newTrip = {};
+                }, function () {
+                // failure
+                vm.errorMessage = "Failed to sve new Trip";
+            })
+            .finally
+            (function () {
+                vm.isBusy = false;
+            });
         };
     }
 })();
