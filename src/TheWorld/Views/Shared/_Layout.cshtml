@@ -4,8 +4,8 @@
     <title>The World - @ViewBag.Title</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/lib/bootswatch/yeti/bootstrap.min.css"/>
-    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="~/lib/bootswatch/yeti/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 
@@ -14,7 +14,7 @@
         <div id="sidebar">
             @if (User.Identity.IsAuthenticated)
             {
-                <img src="~/img/user1.jpg" alt="headshot" class="headshot"/>
+                <img src="~/img/user1.jpg" alt="headshot" class="headshot" />
                 <span id="username">@User.Identity.Name</span>
             }
             <ul class="nav">
@@ -37,7 +37,7 @@
                         <li>
                             <button id="sidebarToggle" class="btn btn-primary">
                                 <i class="fa fa-angle-left"></i>
-                            </button> 
+                            </button>
                         </li>
                     </ul>
                     <a asp-controller="App" asp-action="Index" class="navbar-brand"> The World</a>
@@ -57,7 +57,7 @@
             </nav>
             <div id="main" class="container-fluid">
                 <div>
-                   
+
                 </div>
             </div>
             <div>
@@ -66,17 +66,33 @@
 
             <div id="footer" class="container-fluid">
                 <div class="navbar navbar-inverse navbar-fixed-bottom">
-                     <h4 class="text-info text-center">&copy; 2015 The World Ltd.</h4>
+                    <h4 class="text-info text-center">&copy; 2015 The World Ltd.</h4>
                 </div>
             </div>
         </div>
 
-       
+
     </div>
 
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="~/js/site.js"></script>
+
+    <environment Names="Development">
+        <script src="~/js/simpleControls.js"></script>
+        <script src="~/js/app-trips.js"></script>
+        <script src="~/js/tripsController.js"></script>
+        <script src="~/js/tripEditorController.js"></script>
+        <script src="~/js/site.js"></script>
+    </environment>
+
+    <environment Names="Production,Staging">
+        <script src="~/lib/_app/simpleControls.js"></script>
+        <script src="~/lib/_app/app-trips.js"></script>
+        <script src="~/lib/_app/tripsController.js"></script>
+        <script src="~/lib/_app/tripEditorController.js"></script>
+        <script src="~/lib/_app/site.js"></script>
+    </environment>
+
     <script src="~/lib/angular/angular.min.js"></script>
     @RenderSection("scripts", false)
 

@@ -79,6 +79,7 @@ namespace TheWorld
                 {
                     if (_env.IsProduction())
                     {
+                        //this is enable the https port
                         config.Filters.Add(new RequireHttpsAttribute());
                     }
                 })
@@ -86,6 +87,7 @@ namespace TheWorld
                 {
                     config.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                 });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

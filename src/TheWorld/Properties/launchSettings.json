@@ -10,7 +10,6 @@
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": true,
       "environmentVariables": {
         "MailSettings__ToAddress": "bgates@gatesfoundation.org",
         "ASPNETCORE_ENVIRONMENT": "Development"
@@ -19,7 +18,7 @@
     "TheWorld": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:5000",
+      "launchUrl": "http://localhost:9783",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
