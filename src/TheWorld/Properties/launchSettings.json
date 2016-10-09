@@ -25,3 +25,14 @@
     }
   }
 }
+
+// How to pushish using cmd
+
+// you can going to cmd in root directory in source file
+
+//dotnet publish -o c::\productfile
+//cd..\productfile
+
+//set ASPNETCORE_ENVIRONMENT =Testing or Production
+
+//then dotnet TheWorld.dll
