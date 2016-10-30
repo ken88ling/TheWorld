@@ -22,16 +22,15 @@
             },
                 function (err) {
                     //failure
-                    vm.errorMessage = "Failed to load stops";
+                    vm.errorMessage = "Failed to load stops - " + err;
                 })
         .finally(function () {
             vm.isBusy = false;
         });
 
+        //post method for stop
         vm.addStop = function () {
-
             vm.isBusy = true;
-
             $http.post(url, vm.newStop)
                 .then(function (response) {
                     //success
@@ -41,7 +40,7 @@
                 },
                 function (err) {
                     //failure
-                    vm.errorMessage = "Failed to add new stop";
+                    vm.errorMessage = "Failed to add new stop - " + err;
                 })
             .finally(function () {
                 vm.isBusy = false;

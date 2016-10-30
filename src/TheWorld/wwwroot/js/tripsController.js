@@ -6,12 +6,13 @@
     angular.module("app-trips")
         .controller("tripsController", tripsController);
 
+    //create controller method
     function tripsController($http) {
 
         var vm = this;
 
         // retrieve from api - using http
-        vm.trips = [];
+        vm.trips = []; //$scope.trips --same
 
         vm.newTrip = {};
 
@@ -31,6 +32,7 @@
                 vm.isBusy = false;
             });
 
+        //post function
         vm.addTrip = function () {
 
             vm.isBusy = true;
@@ -40,10 +42,10 @@
             .then(function (response) {
                 // Success
                 vm.trips.push(response.data);
-                vm.newTrip = {};
+                vm.newTrip = {}; //clear the screen
             }, function () {
                 // failure
-                vm.errorMessage = "Failed to sve new Trip";
+                vm.errorMessage = "Failed to save new Trip";
             })
             .finally
             (function () {

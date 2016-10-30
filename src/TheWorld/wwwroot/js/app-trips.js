@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    "use strict";
+    "use strict"; //must exec
 
 
     //Create the module
@@ -14,7 +14,7 @@
             templateUrl: "/views/tripsView.html"//represent what is actual view
         });
 
-        $routeProvider.when("/editor/:tripName",
+        $routeProvider.when("/editor/:tripName", 
         {
             controller: "tripEditorController",
             controllerAs: "vm",
